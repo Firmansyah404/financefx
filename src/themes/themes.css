@@ -1,0 +1,109 @@
+/* ================= DARK ================= */
+
+.theme-dark {
+  --bg: #09090b;
+  --card: #18181b;
+
+  --text: #ffffff;
+  --text-soft: #a1a1aa;
+  --text-muted: #71717a;
+
+  --border: none;
+  --shadow: 0 10px 30px rgba(0,0,0,0.4);
+
+  /* ✅ Primary Indigo-500 */
+  --primary: #6366F1;
+  --primary-text: #ffffff;
+
+  --danger: #f43f5e;
+  --text-amount: #f43f5e;
+  
+}
+
+
+/* ================= LIGHT ================= */
+
+.theme-light {
+  --bg: #ffffff;
+  --card: #f4f4f5;
+
+  --text: #000000;
+  --text-soft: #52525b;
+  --text-muted: #71717a;
+
+  --border: 1px solid rgba(0,0,0,0.08);
+  --shadow: 0 4px 12px rgba(0,0,0,0.08);
+
+  /* ✅ Primary Indigo-500 */
+  --primary: #6366F1;
+  --primary-text: #ffffff;
+
+  --danger: #e11d48;
+  --text-amount: #e11d48;
+}
+
+
+/* ================= LIQUID GLASS ================= */
+
+.theme-liquid {
+  --bg: radial-gradient(circle at top, #1a1a1a, #000);
+  --card: rgba(255,255,255,0.16);
+
+  --text: #ffffff;
+  --text-soft: rgba(255,255,255,0.7);
+  --text-muted: rgba(255,255,255,0.45);
+
+  --border: 1px solid rgba(255,255,255,0.18);
+  --shadow: 0 10px 30px rgba(0,0,0,0.35);
+
+  --blur: blur(14px);
+
+  /* ✅ Primary Indigo-500 */
+  --primary: #6366F1;
+  --primary-text: #ffffff;
+
+  --danger: #fb7185;
+}
+
+
+/* ================= NEOBRUTALISM ================= */
+
+.theme-neo {
+  --bg: #f5f5f5;
+  --card: #ffffff;
+
+  --text: #111111;
+  --text-soft: #444444;
+  --text-muted: #777777;
+
+  --border: 3px solid #000;
+  --shadow: 3px 3px 0px #000;
+
+  /* ✅ Primary Indigo-500 */
+  --primary: #6366F1;
+  --primary-text: #ffffff;
+
+  --danger: #dc2626;
+}
+
+
+/* ================= PASTEL ================= */
+
+.theme-pastel {
+  --bg: #f8fafc;
+  --card: #ffffff;
+
+  --text: #334155;
+  --text-soft: #64748b;
+  --text-muted: #94a3b8;
+
+  --border: 1px solid rgba(0, 0, 0, 0.06);
+  --shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+
+  /* ✅ Primary khusus pastel */
+  --primary: #A5B4FC;
+  --primary-text: #ffffff;
+
+  --danger: #fb7185;
+  --text-amount: #fb7185;
+}

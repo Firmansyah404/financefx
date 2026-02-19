@@ -1,0 +1,401 @@
+/* ================= THEME BASE ================= */
+
+.themed-page {
+  background: var(--bg);
+  color: var(--text);
+  position: relative;
+}
+
+.themed-card {
+  background-color: var(--card);
+  border: var(--border, none);
+  box-shadow: var(--shadow, none);
+  border-radius: 16px;
+  color: inherit;
+}
+
+.themed-header {
+  background: var(--bg);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.themed-border {
+  border: var(--border);
+}
+
+/* Smooth theme transition */
+.themed-page,
+.themed-card,
+.themed-header {
+  transition:
+    background 0.35s ease,
+    background-color 0.35s ease,
+    color 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.themed-input {
+  background: var(--card);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  border-radius: 18px;
+  padding: 12px;
+  text-indent: 0;
+  transition: 0.2s;
+}
+.themed-input::placeholder {
+  text-indent: 0;
+}
+
+.themed-input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px var(--primary-soft);
+}
+
+.scroll-smooth-native {
+  -webkit-overflow-scrolling: touch;
+}
+/* ================= TEXT ================= */
+
+.themed-text {
+  transition: color 0.3s ease;
+}
+
+.themed-text-soft {
+  color: var(--text-soft, var(--text));
+  transition: color 0.3s ease;
+}
+
+.themed-text-muted {
+  color: var(--text-muted, var(--text));
+  transition: color 0.3s ease;
+}
+
+.themed-danger-text {
+  color: var(--danger);
+}
+
+/* Proteksi supaya tidak ketiban warna parent */
+.themed-card .themed-danger-text {
+  color: var(--danger);
+}
+
+/* ================= TOAST ================= */
+
+.themed-toast {
+  @apply px-6 h-12 rounded-full flex items-center gap-3 text-sm font-medium shadow-2xl backdrop-blur-md border transition;
+  white-space: nowrap;
+  line-height: 1;
+  z-index: 999;
+}
+
+.theme-dark .themed-toast {
+  background: rgba(24, 24, 27, 0.95);
+  color: white;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.theme-light .themed-toast {
+  background: rgba(255, 255, 255, 0.95);
+  color: black;
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+.theme-liquid .themed-toast {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(16px);
+  color: white;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.theme-neo .themed-toast {
+  background: #fff;
+  color: #000;
+  border: 3px solid black;
+  box-shadow: 1px 1px 0 black;
+}
+
+/* ================= ADD CATEGORY ================= */
+
+.category-type-card {
+  border: 1px solid transparent;
+  transition: all 0.25s ease;
+}
+
+.category-type-card.active-expense {
+  border: 2px solid rgb(244 63 94);
+  box-shadow:
+    0 0 0 1px rgba(244, 63, 94, 0.25),
+    0 6px 18px rgba(244, 63, 94, 0.15);
+}
+
+.category-type-card.active-income {
+  border: 2px solid rgb(16 185 129);
+  box-shadow:
+    0 0 0 1px rgba(16, 185, 129, 0.2),
+    0 6px 18px rgba(16, 185, 129, 0.12);
+}
+
+/* ================= TOPOGRAPHIC BG – LIGHT ================= */
+
+.theme-light .topographic-bg {
+  position: relative;
+  background-color: var(--bg);
+  overflow: hidden;
+}
+
+.theme-light .topographic-bg::before {
+  content: "";
+  position: absolute;
+  inset: -50%;
+  z-index: 0;
+  pointer-events: none;
+
+  background-image:
+    repeating-radial-gradient(
+      circle at 30% 40%,
+      rgba(0, 0, 0, 0.05) 0px,
+      rgba(0, 0, 0, 0.05) 1px,
+      transparent 1px,
+      transparent 24px
+    ),
+    repeating-radial-gradient(
+      circle at 70% 60%,
+      rgba(0, 0, 0, 0.04) 0px,
+      rgba(0, 0, 0, 0.04) 1px,
+      transparent 1px,
+      transparent 28px
+    );
+
+  opacity: 0.7;
+
+  animation:
+    topoFloat 18s ease-in-out infinite alternate,
+    topoRotate 60s linear infinite;
+}
+
+@keyframes topoFloat {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(-3%, 2%, 0) scale(1.04); }
+  100% { transform: translate3d(2%, -2%, 0) scale(1); }
+}
+
+@keyframes topoRotate {
+  from { rotate: 0deg; }
+  to { rotate: 360deg; }
+}
+
+/* ================= TOPOGRAPHIC BG – DARK ================= */
+
+.theme-dark .topographic-bg {
+  position: relative;
+  inset: 0;
+  overflow: hidden;
+  background-color: var(--bg);
+}
+
+.theme-dark .topographic-bg::before {
+  content: "";
+  position: absolute;
+  inset: -50%;
+  z-index: 0;
+  pointer-events: none;
+  mix-blend-mode: screen;
+
+  background-image:
+    repeating-radial-gradient(
+      circle at 25% 35%,
+      rgba(255, 255, 255, 0.08) 0px,
+      rgba(255, 255, 255, 0.08) 1px,
+      transparent 1px,
+      transparent 26px
+    ),
+    repeating-radial-gradient(
+      circle at 75% 65%,
+      rgba(255, 255, 255, 0.06) 0px,
+      rgba(255, 255, 255, 0.06) 1px,
+      transparent 1px,
+      transparent 30px
+    );
+
+  opacity: 0.8;
+
+  animation:
+    topoFloatDark 22s ease-in-out infinite alternate,
+    topoRotateDark 120s linear infinite;
+}
+
+@keyframes topoFloatDark {
+  0% { transform: translate3d(0%, 0%, 0) scale(1); }
+  50% { transform: translate3d(-2%, 1.5%, 0) scale(1.03); }
+  100% { transform: translate3d(1.5%, -1.5%, 0) scale(1); }
+}
+
+@keyframes topoRotateDark {
+  from { transform: rotate(0deg) scale(1.02); }
+  to { transform: rotate(360deg) scale(1.02); }
+}
+
+/* ================= TOPOGRAPHIC BG – LIQUID ================= */
+
+.theme-liquid .topographic-bg {
+  position: relative;
+  background: var(--bg);
+  overflow: hidden;
+}
+
+.theme-liquid .topographic-bg::before {
+  content: "";
+  position: absolute;
+  inset: -50%;
+
+  background-image:
+    repeating-radial-gradient(
+      circle at 20% 30%,
+      rgba(255, 255, 255, 0.08) 0px,
+      rgba(255, 255, 255, 0.08) 1px,
+      transparent 1px,
+      transparent 28px
+    ),
+    repeating-radial-gradient(
+      circle at 80% 70%,
+      rgba(255, 255, 255, 0.05) 0px,
+      rgba(255, 255, 255, 0.05) 1px,
+      transparent 1px,
+      transparent 34px
+    );
+
+  opacity: 0.28;
+
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  mix-blend-mode: screen;
+  pointer-events: none;
+
+  animation:
+    liquidTopoFloat 24s ease-in-out infinite alternate,
+    liquidTopoRotate 120s linear infinite;
+}
+
+.theme-liquid .topographic-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(255, 255, 255, 0.08),
+      transparent 60%
+    );
+
+  pointer-events: none;
+}
+
+@keyframes liquidTopoFloat {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(-2%, 2%, 0) scale(1.03); }
+  100% { transform: translate3d(2%, -1%, 0) scale(1); }
+}
+
+@keyframes liquidTopoRotate {
+  from { transform: rotate(0deg) scale(1.02); }
+  to { transform: rotate(360deg) scale(1.02); }
+}
+
+/* ================= PASTEL THEME ================= */
+
+.theme-pastel .themed-card {
+  background-color: var(--card);
+  color: var(--text);
+  border: var(--border);
+  box-shadow: var(--shadow);
+}
+
+.theme-pastel .btn-primary {
+  background: var(--primary);
+  color: #1e293b;
+  box-shadow: 0 4px 10px rgba(165, 180, 252, 0.35);
+}
+
+.theme-pastel .btn-primary:active {
+  transform: scale(0.97);
+}
+
+.theme-pastel .btn-secondary {
+  background: #f1f5f9;
+  color: var(--text);
+  border: var(--border);
+}
+
+.theme-pastel .text-income {
+  color: #34d399;
+}
+
+.theme-pastel .text-expense {
+  color: #fb7185;
+}
+
+.theme-pastel .wallet-card-text {
+  color: #1e293b; /* slate-800 → gelap lembut */
+  text-shadow:
+    0 1px 1px rgba(255,255,255,0.35); /* glow halus */
+}
+
+
+
+
+.themed-primary-button {
+  background: var(--primary);
+  color: var(--primary-text);
+  border-radius: 1rem;
+  padding: 14px 18px;
+  font-weight: 600;
+  font-size: 16px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+  transition: all 0.2s ease;
+}
+
+.themed-primary-button:active {
+  transform: scale(0.98);
+  opacity: 0.9;
+}
+
+.themed-primary-button:hover {
+  filter: brightness(1.05);
+}
+
+
+.themed-text-amount {
+  color: var(--text-amount);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+@keyframes slide-up {
+  from { transform: translateY(100%); opacity: 0 }
+  to { transform: translateY(0); opacity: 1 }
+}
+
+.animate-slide-up {
+  animation: slide-up 0.25s ease-out;
+}
+
+
+
+
+
+
+
+.animate-fade-in {
+  animation: fadeIn 0.15s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
+}
